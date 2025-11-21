@@ -53,4 +53,22 @@ router.post('/delete', function (req, res, next) {
     }
 });
 
+router.post('/complete', function (req, res, next) {
+  const{ id } = req.body;
+
+  try {
+    req.db.query('UPDATE todos SET completed = 1 WHERE id = ?;', [id], (err, results) => {
+      if (err) {
+        console.error('Error marking todo as cocmpleted:', err);
+        return res.status(500).send('Error updating todo');
+      }
+      console.log('Todo marked as completed:', results);
+      res.redirect('/');
+    });
+  } catch (error) {
+    console.error('Error updating todo:', error);
+    res.status(500).send('Error updating todo');
+  }
+});
+
 module.exports = router;

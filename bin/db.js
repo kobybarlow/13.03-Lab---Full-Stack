@@ -47,3 +47,4 @@ function closeDbConnection() {
 }
 
 module.exports = { dbMiddleware, createDbConnection, closeDbConnection };
+
