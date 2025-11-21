@@ -3,28 +3,29 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  ol
+
+  ol.todo-list
   each val in todos
-    li
-      span= val.task + ' - '
+    li.todo-items
+      span.task-name= val.task + ' - '
       if val.completed > 0
-        span Completed
+        span.status.completed Completed
       else
-        pan Not Completed
-      form(method='POST' action='/delete')
+        span.status.not-completed Not Completed
+      
+      form.delete-form(method='POST' action='/delete')
         input(type='hidden', name='id', value=val.id)
-        button(type='submit') Delete
+        button.delete-btn(type='submit') Delete
 
-      form(method='POST', action='/complete')
+      form.complete-form(method='POST', action='/complete')
         input(type='hidden', name='id', value=val.id)
-        button(type='submit') Complete
-
+        button.complete-btn(type='submit') Complete
 
   hr
   h2 Add a new task
-  form(method='POST' action='/create')
+  form.create-form(method='POST' action='/create')
     label(for='task') Task:
     input(type='text', name='task', id='task', required)
-    button(type='submit') Create Task
+    button.create-btn(type='submit') Create Task
 
   

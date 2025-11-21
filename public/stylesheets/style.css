@@ -1,8 +1,31 @@
 body {
+  background-color:darkkhaki;
+  text-align: center;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+button.delete-btn {
+  background-color:aliceblue;
+  border: none;
+}
+
+button.delete-btn:hover {
+  background-color:red;
+  opacity: 0.55;
+}
+
+button.complete-btn {
+  background-color:aliceblue;
+  border: none;
+  
+}
+
+button.complete-btn:hover {
+  background-color: greenyellow;
+  opacity: 0.55;
 }
